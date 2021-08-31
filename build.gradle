@@ -8,6 +8,14 @@ group = 'hello'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+// LOMBOK Setting start
+configurations{
+	compileOnly{
+		extendsFrom annotationProcessor
+	}
+}
+// LOMBOK Setting end
+
 repositories {
 	mavenCentral()
 }
@@ -15,6 +23,14 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// LOMBOK Setting start
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+	// LOMBOK Setting end
 }
 
 test {
